@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "762168107791",
+    "project_id": "point-de-vente-stage",
+    "storage_bucket": "point-de-vente-stage.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762168107791:android:4e85140f06e12e6da6947a",
+        "android_client_info": {
+          "package_name": "com.android.point_de_vente"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "762168107791-kbr1unjev287p2ft3q1j811j9djj4hod.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCM3tjXo3SQwrJeNGNTPZRh4-9LIY8w79Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "762168107791-kbr1unjev287p2ft3q1j811j9djj4hod.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
