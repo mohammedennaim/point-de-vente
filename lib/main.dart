@@ -4,7 +4,6 @@ import 'package:point_de_vente/home_screen.dart';
 import 'package:point_de_vente/login_page.dart';
 import 'package:point_de_vente/register_page.dart';
 import 'package:firebase_core/firebase_core.dart';
-
 import 'Splash.dart';
 
 void main() async {

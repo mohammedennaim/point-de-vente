@@ -1,3 +1,4 @@
+// ignore_for_file: unused_import
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -47,12 +48,12 @@ class _MyLoginState extends State<MyLogin> {
               child: Container(
                 padding: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.5),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(left: 35, right: 35),
-                      child: SingleChildScrollView(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(left: 35, right: 35),
                         child: Column(
                           children: [
                             TextField(
@@ -105,15 +106,16 @@ class _MyLoginState extends State<MyLogin> {
                                 Container(
                                   margin: EdgeInsets.only(left: 7),
                                   child: TextButton(
-                                      onPressed: () {},
-                                      child: Text(
-                                        'Forgot Password',
-                                        style: TextStyle(
-                                          decoration: TextDecoration.underline,
-                                          color: Color(0xff4c505b),
-                                          fontSize: 17,
-                                        ),
-                                      )),
+                                    onPressed: () {},
+                                    child: Text(
+                                      'Forgot Password',
+                                      style: TextStyle(
+                                        decoration: TextDecoration.underline,
+                                        color: Color(0xff4c505b),
+                                        fontSize: 17,
+                                      ),
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -148,8 +150,8 @@ class _MyLoginState extends State<MyLogin> {
                           ],
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
