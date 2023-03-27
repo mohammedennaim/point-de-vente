@@ -12,10 +12,10 @@ class Auth extends StatelessWidget {
       body: StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return HomeScreen();
-          } else {
+          if (!snapshot.hasData) {
             return MyLogin();
+          } else {
+            return HomeScreen();
           }
         },
       ),

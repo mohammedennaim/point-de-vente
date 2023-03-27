@@ -81,10 +81,11 @@ class _MyHomeState extends State<Splash> {
                               'Register',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  decoration: TextDecoration.none,
-                                  color: Colors.white,
-                                  fontSize: 26,
-                                  fontWeight: FontWeight.bold),
+                                decoration: TextDecoration.none,
+                                color: Colors.white,
+                                fontSize: 26,
+                                fontWeight: FontWeight.bold
+                              ),
                             ),
                           ),
                         ],

@@ -1,4 +1,3 @@
-// ignore_for_file: unused_import
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +15,6 @@ class _MyLoginState extends State<MyLogin> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _emailController.dispose();
     _passwordController.dispose();
@@ -40,8 +38,9 @@ class _MyLoginState extends State<MyLogin> {
               margin: EdgeInsets.only(bottom: 330),
               decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/images/login.png'),
-                    fit: BoxFit.contain),
+                  image: AssetImage('assets/images/login.png'),
+                  fit: BoxFit.contain
+                ),
               ),
             ),
             SingleChildScrollView(
