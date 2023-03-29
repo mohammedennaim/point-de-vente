@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:point_de_vente/home_screen.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({Key? key}) : super(key: key);
@@ -25,6 +27,9 @@ class _MyLoginState extends State<MyLogin> {
       email: _emailController.text.trim(),
       password: _passwordController.text.trim(),
     );
+    // ignore: unused_label
+    OnTap:
+    HomeScreen();
   }
 
   @override
@@ -38,9 +43,8 @@ class _MyLoginState extends State<MyLogin> {
               margin: EdgeInsets.only(bottom: 330),
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/login.png'),
-                  fit: BoxFit.contain
-                ),
+                    image: AssetImage('assets/images/login.png'),
+                    fit: BoxFit.contain),
               ),
             ),
             SingleChildScrollView(
@@ -146,6 +150,24 @@ class _MyLoginState extends State<MyLogin> {
                                 ),
                               ),
                             ),
+                            // TextButton(
+                            //   onPressed: () {
+                            //     Navigator.pushNamed(context, 'home');
+                            //     Navigator.pushNamed(context, LogIn() as String);
+                            //   },
+                            //   child: Center(
+                            //     child: Text(
+                            //       'Login',
+                            //       textAlign: TextAlign.center,
+                            //       style: TextStyle(
+                            //           decoration: TextDecoration.none,
+                            //           color: Colors.white,
+                            //           backgroundColor: Colors.transparent,
+                            //           fontSize: 26,
+                            //           fontWeight: FontWeight.bold),
+                            //     ),
+                            //   ),
+                            // ),
                           ],
                         ),
                       ),
