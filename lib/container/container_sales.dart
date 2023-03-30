@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 
-class ContainerHome extends StatelessWidget {
-  const ContainerHome(
+class ContainerSales extends StatelessWidget {
+  const ContainerSales(
       {key,
       required this.assetImage,
       required this.onTap,
-      required this.color,
-      required this.text});
+      required this.color});
   final AssetImage assetImage;
   final VoidCallback onTap;
   final Color color;
-  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +16,8 @@ class ContainerHome extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.all(4),
-        height: 177,
-        width: 160,
+        height: 80,
+        width: 80,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
@@ -35,21 +33,16 @@ class ContainerHome extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(
-              height: 20,
+              height: 16,
             ),
             Image(
               image: assetImage,
-              width: 100,
-              height: 100,
+              width: 40,
+              height: 40,
             ),
             const SizedBox(
               height: 10,
             ),
-            Text(
-              text,
-              style: TextStyle(
-                  color: color, fontSize: 18, fontWeight: FontWeight.w600),
-            )
           ],
         ),
       ),

@@ -31,6 +31,9 @@ dependencies:
   firebase_core: ^2.8.0
   firebase_auth: ^4.3.0
   get: ^4.6.5
+  google_sign_in: ^6.0.2
+  google_nav_bar: ^5.0.6
+  font_awesome_flutter: ^10.4.0
 
 dev_dependencies:
   flutter_test:
@@ -54,7 +57,7 @@ flutter:
     - assets/images/home.png
     - assets/images/image.jpg
     - assets/images/products.png
-    - assets/images/purechase.png
+    - assets/images/purchase.png
     - assets/images/sale.png
     - assets/images/stock.png
     - assets/images/user.png

@@ -12,21 +12,6 @@ class _MyHomeState extends State<Splash> {
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          leading: Builder(
-            builder: (context) => IconButton(
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-              icon: const Icon(Icons.menu),
-              color: Colors.amber[800],
-              iconSize: 30,
-            ),
-          ),
-        ),
-        drawer: const Drawer(),
         backgroundColor: Colors.white,
         body: Stack(
           children: [
@@ -81,11 +66,10 @@ class _MyHomeState extends State<Splash> {
                               'Register',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                decoration: TextDecoration.none,
-                                color: Colors.white,
-                                fontSize: 26,
-                                fontWeight: FontWeight.bold
-                              ),
+                                  decoration: TextDecoration.none,
+                                  color: Colors.white,
+                                  fontSize: 26,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ),
                         ],
