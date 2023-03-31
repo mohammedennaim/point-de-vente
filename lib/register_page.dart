@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class MyRegister extends StatefulWidget {
@@ -8,6 +9,35 @@ class MyRegister extends StatefulWidget {
 }
 
 class _MyRegisterState extends State<MyRegister> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
+
+  @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
+  }
+
+  Future SignUp() async {
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: _emailController.text.trim(),
+      password: _passwordController.text.trim(),
+    );
+    Navigator.of(context).pushNamed('/');
+  }
+
+  bool passwordConfirmed() {
+    if (_passwordController.text.trim() ==
+        _confirmPasswordController.text.trim()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,7 +49,11 @@ class _MyRegisterState extends State<MyRegister> {
         ),
         body: Stack(
           children: [
+            SizedBox(
+              height: 30,
+            ),
             Container(
+              // padding: EdgeInsets.only(top: 10),
               height: 100,
               width: 100,
               margin: EdgeInsets.only(bottom: 310, left: 160),
@@ -40,31 +74,32 @@ class _MyRegisterState extends State<MyRegister> {
                       margin: EdgeInsets.only(left: 35, right: 35),
                       child: Column(
                         children: [
-                          TextField(
-                            style: TextStyle(color: Colors.black),
-                            decoration: InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                hintText: "FullName",
-                                hintStyle: TextStyle(color: Colors.black),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                )),
-                          ),
+                          // TextField(
+                          //   style: TextStyle(color: Colors.black),
+                          //   decoration: InputDecoration(
+                          //       enabledBorder: OutlineInputBorder(
+                          //         borderRadius: BorderRadius.circular(10),
+                          //         borderSide: BorderSide(
+                          //           color: Colors.black,
+                          //         ),
+                          //       ),
+                          //       focusedBorder: OutlineInputBorder(
+                          //         borderRadius: BorderRadius.circular(10),
+                          //         borderSide: BorderSide(
+                          //           color: Colors.black,
+                          //         ),
+                          //       ),
+                          //       hintText: "FullName",
+                          //       hintStyle: TextStyle(color: Colors.black),
+                          //       border: OutlineInputBorder(
+                          //         borderRadius: BorderRadius.circular(10),
+                          //       )),
+                          // ),
                           SizedBox(
                             height: 30,
                           ),
                           TextField(
+                            controller: _emailController,
                             style: TextStyle(color: Colors.black),
                             decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
@@ -89,6 +124,7 @@ class _MyRegisterState extends State<MyRegister> {
                             height: 30,
                           ),
                           TextField(
+                            controller: _passwordController,
                             style: TextStyle(color: Colors.black),
                             obscureText: true,
                             decoration: InputDecoration(
@@ -104,16 +140,17 @@ class _MyRegisterState extends State<MyRegister> {
                                     color: Colors.black,
                                   ),
                                 ),
-                                hintText: "+212 771236530",
+                                hintText: "Password",
                                 hintStyle: TextStyle(color: Colors.black),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),
                           ),
                           SizedBox(
-                            height: 40,
+                            height: 30,
                           ),
                           TextField(
+                            controller: _confirmPasswordController,
                             style: TextStyle(color: Colors.black),
                             obscureText: true,
                             decoration: InputDecoration(
@@ -129,7 +166,7 @@ class _MyRegisterState extends State<MyRegister> {
                                     color: Colors.black,
                                   ),
                                 ),
-                                hintText: "**********",
+                                hintText: "Confirm Password",
                                 hintStyle: TextStyle(color: Colors.black),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
@@ -141,6 +178,7 @@ class _MyRegisterState extends State<MyRegister> {
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 4),
                             child: GestureDetector(
+                              onTap: SignUp,
                               child: Container(
                                 padding: EdgeInsets.all(20),
                                 decoration: BoxDecoration(
