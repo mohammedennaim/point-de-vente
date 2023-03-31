@@ -9,12 +9,39 @@ class HomeScreen extends StatefulWidget {
 
 class DashboardState extends State<HomeScreen> {
   int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  // static const List<Widget> _widgetOptions = <Widget>[
+  //   Text(
+  //     'Index 0: Home',
+  //     style: optionStyle,
+  //   ),
+  //   Text(
+  //     'Index 1: Business',
+  //     style: optionStyle,
+  //   ),
+  //   Text(
+  //     'Index 2: School',
+  //     style: optionStyle,
+  //   ),
+  //   Text(
+  //     'Index 3: Settings',
+  //     style: optionStyle,
+  //   ),
+  // ];
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
+
+  Widget buildCard() => Container(
+        height: 180,
+        width: 360,
+        color: Colors.red,
+        child: Image.asset('assets/images/image.jpg'),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +54,9 @@ class DashboardState extends State<HomeScreen> {
           // leading: Builder(
           IconButton(
             onPressed: () {
-              Scaffold.of(context).openEndDrawer();
+              Navigator.pushNamed(context, 'login');
             },
-            icon: const Icon(Icons.menu),
+            icon: const Icon(Icons.logout),
             color: Color.fromARGB(255, 255, 187, 0),
             iconSize: 30,
           ),
@@ -39,9 +66,9 @@ class DashboardState extends State<HomeScreen> {
         leading: Builder(
           builder: (context) => IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, 'login');
+              Scaffold.of(context).openDrawer();
             },
-            icon: const Icon(Icons.arrow_circle_left_rounded),
+            icon: const Icon(Icons.menu),
             color: Color.fromARGB(255, 255, 187, 0),
             iconSize: 30,
           ),
@@ -63,13 +90,15 @@ class DashboardState extends State<HomeScreen> {
                       onTap: () {
                         Navigator.pushNamed(context, 'sales');
                       },
-                      color: const Color(0xff9bc9ff),
+                      color: const Color(0xff042698),
                       text: "Sales"),
                   ContainerHome(
                       assetImage:
                           const AssetImage('assets/images/products.png'),
-                      onTap: () {},
-                      color: const Color(0xffb00909),
+                      onTap: () {
+                        Navigator.pushNamed(context, 'products');
+                      },
+                      color: const Color(0xff042698),
                       text: "Products")
                 ],
               ),
@@ -83,7 +112,7 @@ class DashboardState extends State<HomeScreen> {
                       assetImage:
                           const AssetImage('assets/images/purchase.png'),
                       onTap: () {},
-                      color: const Color(0xffef78b4),
+                      color: const Color(0xff042698),
                       text: "Purchase"),
                   ContainerHome(
                       assetImage: const AssetImage('assets/images/stock.png'),
@@ -95,35 +124,22 @@ class DashboardState extends State<HomeScreen> {
               const SizedBox(
                 height: 40,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    // decoration: BoxDecoration(
-                    //   borderRadius: BorderRadius.circular(15),
-                    //   boxShadow: [
-                    //     BoxShadow(
-                    //       color: Colors.grey.withOpacity(0.5),
-                    //       spreadRadius: 2,
-                    //       blurRadius: 5,
-                    //       offset: const Offset(0, 3), // changes position of shadow
-                    //     ),
-                    //   ],
-                    // ),
-                    child: Column(
-                      children: [
-                        Image(
-                          image: AssetImage('assets/images/image.jpg'),
-                          height: 180,
-                          width: 360,
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+              Container(
+                // margin: EdgeInsets.only(left: 40),
+                padding: EdgeInsets.only(left: 38, right: 38),
+                height: 170,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    buildCard(),
+                    SizedBox(width: 20),
+                    buildCard(),
+                    SizedBox(width: 20),
+                    buildCard(),
+                    SizedBox(width: 20),
+                    buildCard(),
+                  ],
+                ),
               )
             ],
           )),
@@ -132,18 +148,26 @@ class DashboardState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
+            backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.solar_power_rounded),
-            label: 'Business',
+            icon: Icon(Icons.local_offer),
+            label: 'Sales',
+            backgroundColor: Colors.green,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+            icon: Icon(Icons.all_inbox),
+            label: 'Products',
+            backgroundColor: Colors.purple,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.store),
+            label: 'Stock',
+            backgroundColor: Colors.pink,
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.black,
         onTap: _onItemTapped,
       ),
     );
