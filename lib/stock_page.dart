@@ -2,24 +2,26 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:point_de_vente/container/container_sales.dart';
 // import 'package:point_de_vente/container/coustom_bottom_nav_bar.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:point_de_vente/container/darwer_header.dart';
 import 'package:line_icons/line_icons.dart';
 
 import 'package:google_nav_bar/google_nav_bar.dart' show GButton, GNav;
 
-class SalesScreen extends StatefulWidget {
-  const SalesScreen({key});
+class StockScreen extends StatefulWidget {
+  const StockScreen({key});
   @override
-  State<SalesScreen> createState() => DashboardState();
+  State<StockScreen> createState() => DashboardState();
 }
 
-class DashboardState extends State<SalesScreen> {
+class DashboardState extends State<StockScreen> {
   final user = FirebaseAuth.instance.currentUser!;
+
   var currentPage = DrawerSections.User;
 
   @override
   Widget build(BuildContext context) {
-    var _selectedIndex = 1;
+    var _selectedIndex = 3;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -34,6 +36,7 @@ class DashboardState extends State<SalesScreen> {
             color: Color.fromARGB(255, 255, 187, 0),
             iconSize: 30,
           ),
+          // ),
         ],
         leading: Builder(
           builder: (context) => IconButton(
@@ -59,6 +62,7 @@ class DashboardState extends State<SalesScreen> {
           ),
         ),
       ),
+      // primary: pages[currentIndex],
       body: Container(
         alignment: Alignment.center,
         child: SingleChildScrollView(
@@ -68,7 +72,7 @@ class DashboardState extends State<SalesScreen> {
                 height: 5,
               ),
               Text(
-                'Sales Page',
+                'Stock Page',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -85,34 +89,6 @@ class DashboardState extends State<SalesScreen> {
                           const AssetImage('assets/images/purchase.png'),
                       onTap: () {},
                       color: const Color(0xffef78b4)),
-                  ContainerSales(
-                    assetImage: const AssetImage('assets/images/stock.png'),
-                    onTap: () {},
-                    color: const Color(0xff042698),
-                  ),
-                  ContainerSales(
-                    assetImage: const AssetImage('assets/images/purchase.png'),
-                    onTap: () {},
-                    color: const Color(0xffef78b4),
-                  ),
-                  ContainerSales(
-                    assetImage: const AssetImage('assets/images/stock.png'),
-                    onTap: () {},
-                    color: const Color(0xff042698),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ContainerSales(
-                    assetImage: const AssetImage('assets/images/purchase.png'),
-                    onTap: () {},
-                    color: const Color(0xffef78b4),
-                  ),
                   ContainerSales(
                     assetImage: const AssetImage('assets/images/stock.png'),
                     onTap: () {},
@@ -388,7 +364,7 @@ class DashboardState extends State<SalesScreen> {
       //   selectedItemColor: Colors.black,
       //   onTap: _onItemTapped,
       // ),
-      // bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.sales),
+      // bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.stock),
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
@@ -453,9 +429,9 @@ class DashboardState extends State<SalesScreen> {
       padding: EdgeInsets.only(top: 15),
       child: Column(children: [
         const SizedBox(
-          height: 50,
+          height: 40,
         ),
-        menuItem(1, "User", Icons.dashboard_outlined,
+        menuItem(1, "User", Icons.supervised_user_circle_outlined,
             currentPage == DrawerSections.User ? true : false),
         const SizedBox(
           height: 40,
@@ -486,7 +462,7 @@ class DashboardState extends State<SalesScreen> {
     );
   }
 
-  Widget menuItem(int id, String title, IconData iconData, bool selected) {
+  Widget menuItem(int id, String title, IconData icon, bool selected) {
     return Material(
       child: InkWell(
         onTap: () {

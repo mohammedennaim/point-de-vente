@@ -87,7 +87,7 @@ class _MyLoginState extends State<MyLogin> {
                               children: [
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.pushNamed(context, 'register');
+                                    Navigator.of(context).pushNamed('register');
                                   },
                                   child: Text(
                                     'Register',

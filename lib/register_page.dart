@@ -26,7 +26,7 @@ class _MyRegisterState extends State<MyRegister> {
       email: _emailController.text.trim(),
       password: _passwordController.text.trim(),
     );
-    Navigator.of(context).pushNamed('/');
+    Navigator.of(context).pushNamed('Auth');
   }
 
   bool passwordConfirmed() {
@@ -50,7 +50,7 @@ class _MyRegisterState extends State<MyRegister> {
         body: Stack(
           children: [
             SizedBox(
-              height: 30,
+              height: 50,
             ),
             Container(
               // padding: EdgeInsets.only(top: 10),
@@ -74,27 +74,6 @@ class _MyRegisterState extends State<MyRegister> {
                       margin: EdgeInsets.only(left: 35, right: 35),
                       child: Column(
                         children: [
-                          // TextField(
-                          //   style: TextStyle(color: Colors.black),
-                          //   decoration: InputDecoration(
-                          //       enabledBorder: OutlineInputBorder(
-                          //         borderRadius: BorderRadius.circular(10),
-                          //         borderSide: BorderSide(
-                          //           color: Colors.black,
-                          //         ),
-                          //       ),
-                          //       focusedBorder: OutlineInputBorder(
-                          //         borderRadius: BorderRadius.circular(10),
-                          //         borderSide: BorderSide(
-                          //           color: Colors.black,
-                          //         ),
-                          //       ),
-                          //       hintText: "FullName",
-                          //       hintStyle: TextStyle(color: Colors.black),
-                          //       border: OutlineInputBorder(
-                          //         borderRadius: BorderRadius.circular(10),
-                          //       )),
-                          // ),
                           SizedBox(
                             height: 30,
                           ),

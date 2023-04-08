@@ -1,7 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:point_de_vente/container/container_sales.dart';
+// import 'package:point_de_vente/container/coustom_bottom_nav_bar.dart';
 import 'package:point_de_vente/container/darwer_header.dart';
+import 'package:line_icons/line_icons.dart';
+
+import 'package:google_nav_bar/google_nav_bar.dart' show GButton, GNav;
 
 class ProductsScreen extends StatefulWidget {
   const ProductsScreen({key});
@@ -11,10 +15,12 @@ class ProductsScreen extends StatefulWidget {
 
 class DashboardState extends State<ProductsScreen> {
   final user = FirebaseAuth.instance.currentUser!;
+
   var currentPage = DrawerSections.User;
 
   @override
   Widget build(BuildContext context) {
+    var _selectedIndex = 2;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -24,7 +30,6 @@ class DashboardState extends State<ProductsScreen> {
           IconButton(
             onPressed: () {
               FirebaseAuth.instance.signOut();
-              Navigator.pushNamed(context, 'login');
             },
             icon: const Icon(Icons.logout),
             color: Color.fromARGB(255, 255, 187, 0),
@@ -56,277 +61,364 @@ class DashboardState extends State<ProductsScreen> {
           ),
         ),
       ),
+      // primary: pages[currentIndex],
       body: Container(
         alignment: Alignment.center,
         child: SingleChildScrollView(
-            child: Column(
-          children: [
-            const SizedBox(
-              height: 5,
-            ),
-            Text(
-              'Page Products',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 5,
               ),
-            ),
-            const SizedBox(
-              height: 35,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ContainerSales(
+              Text(
+                'Products Page',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(
+                height: 35,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ContainerSales(
+                      assetImage:
+                          const AssetImage('assets/images/purchase.png'),
+                      onTap: () {},
+                      color: const Color(0xffef78b4)),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/stock.png'),
+                    onTap: () {},
+                    color: const Color(0xff042698),
+                  ),
+                  ContainerSales(
                     assetImage: const AssetImage('assets/images/purchase.png'),
                     onTap: () {},
-                    color: const Color(0xffef78b4)),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/stock.png'),
-                  onTap: () {},
-                  color: const Color(0xff042698),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/purchase.png'),
-                  onTap: () {},
-                  color: const Color(0xffef78b4),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/stock.png'),
-                  onTap: () {},
-                  color: const Color(0xff042698),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/purchase.png'),
-                  onTap: () {},
-                  color: const Color(0xffef78b4),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/stock.png'),
-                  onTap: () {},
-                  color: const Color(0xff042698),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/purchase.png'),
-                  onTap: () {},
-                  color: const Color(0xffef78b4),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/stock.png'),
-                  onTap: () {},
-                  color: const Color(0xff042698),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/purchase.png'),
-                  onTap: () {},
-                  color: const Color(0xffef78b4),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/stock.png'),
-                  onTap: () {},
-                  color: const Color(0xff042698),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/purchase.png'),
-                  onTap: () {},
-                  color: const Color(0xffef78b4),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/stock.png'),
-                  onTap: () {},
-                  color: const Color(0xff042698),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/purchase.png'),
-                  onTap: () {},
-                  color: const Color(0xffef78b4),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/stock.png'),
-                  onTap: () {},
-                  color: const Color(0xff042698),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/purchase.png'),
-                  onTap: () {},
-                  color: const Color(0xffef78b4),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/stock.png'),
-                  onTap: () {},
-                  color: const Color(0xff042698),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/purchase.png'),
-                  onTap: () {},
-                  color: const Color(0xffef78b4),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/stock.png'),
-                  onTap: () {},
-                  color: const Color(0xff042698),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/purchase.png'),
-                  onTap: () {},
-                  color: const Color(0xffef78b4),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/stock.png'),
-                  onTap: () {},
-                  color: const Color(0xff042698),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/purchase.png'),
-                  onTap: () {},
-                  color: const Color(0xffef78b4),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/stock.png'),
-                  onTap: () {},
-                  color: const Color(0xff042698),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/purchase.png'),
-                  onTap: () {},
-                  color: const Color(0xffef78b4),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/stock.png'),
-                  onTap: () {},
-                  color: const Color(0xff042698),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/purchase.png'),
-                  onTap: () {},
-                  color: const Color(0xffef78b4),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/stock.png'),
-                  onTap: () {},
-                  color: const Color(0xff042698),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/purchase.png'),
-                  onTap: () {},
-                  color: const Color(0xffef78b4),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/stock.png'),
-                  onTap: () {},
-                  color: const Color(0xff042698),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/purchase.png'),
-                  onTap: () {},
-                  color: const Color(0xffef78b4),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/stock.png'),
-                  onTap: () {},
-                  color: const Color(0xff042698),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/purchase.png'),
-                  onTap: () {},
-                  color: const Color(0xffef78b4),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/stock.png'),
-                  onTap: () {},
-                  color: const Color(0xff042698),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/purchase.png'),
-                  onTap: () {},
-                  color: const Color(0xffef78b4),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/stock.png'),
-                  onTap: () {},
-                  color: const Color(0xff042698),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/purchase.png'),
-                  onTap: () {},
-                  color: const Color(0xffef78b4),
-                ),
-                ContainerSales(
-                  assetImage: const AssetImage('assets/images/stock.png'),
-                  onTap: () {},
-                  color: const Color(0xff042698),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-          ],
-        )),
+                    color: const Color(0xffef78b4),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/stock.png'),
+                    onTap: () {},
+                    color: const Color(0xff042698),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/purchase.png'),
+                    onTap: () {},
+                    color: const Color(0xffef78b4),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/stock.png'),
+                    onTap: () {},
+                    color: const Color(0xff042698),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/purchase.png'),
+                    onTap: () {},
+                    color: const Color(0xffef78b4),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/stock.png'),
+                    onTap: () {},
+                    color: const Color(0xff042698),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/purchase.png'),
+                    onTap: () {},
+                    color: const Color(0xffef78b4),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/stock.png'),
+                    onTap: () {},
+                    color: const Color(0xff042698),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/purchase.png'),
+                    onTap: () {},
+                    color: const Color(0xffef78b4),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/stock.png'),
+                    onTap: () {},
+                    color: const Color(0xff042698),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/purchase.png'),
+                    onTap: () {},
+                    color: const Color(0xffef78b4),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/stock.png'),
+                    onTap: () {},
+                    color: const Color(0xff042698),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/purchase.png'),
+                    onTap: () {},
+                    color: const Color(0xffef78b4),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/stock.png'),
+                    onTap: () {},
+                    color: const Color(0xff042698),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/purchase.png'),
+                    onTap: () {},
+                    color: const Color(0xffef78b4),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/stock.png'),
+                    onTap: () {},
+                    color: const Color(0xff042698),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/purchase.png'),
+                    onTap: () {},
+                    color: const Color(0xffef78b4),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/stock.png'),
+                    onTap: () {},
+                    color: const Color(0xff042698),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/purchase.png'),
+                    onTap: () {},
+                    color: const Color(0xffef78b4),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/stock.png'),
+                    onTap: () {},
+                    color: const Color(0xff042698),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/purchase.png'),
+                    onTap: () {},
+                    color: const Color(0xffef78b4),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/stock.png'),
+                    onTap: () {},
+                    color: const Color(0xff042698),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/purchase.png'),
+                    onTap: () {},
+                    color: const Color(0xffef78b4),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/stock.png'),
+                    onTap: () {},
+                    color: const Color(0xff042698),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/purchase.png'),
+                    onTap: () {},
+                    color: const Color(0xffef78b4),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/stock.png'),
+                    onTap: () {},
+                    color: const Color(0xff042698),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/purchase.png'),
+                    onTap: () {},
+                    color: const Color(0xffef78b4),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/stock.png'),
+                    onTap: () {},
+                    color: const Color(0xff042698),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/purchase.png'),
+                    onTap: () {},
+                    color: const Color(0xffef78b4),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/stock.png'),
+                    onTap: () {},
+                    color: const Color(0xff042698),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/purchase.png'),
+                    onTap: () {},
+                    color: const Color(0xffef78b4),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/stock.png'),
+                    onTap: () {},
+                    color: const Color(0xff042698),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/purchase.png'),
+                    onTap: () {},
+                    color: const Color(0xffef78b4),
+                  ),
+                  ContainerSales(
+                    assetImage: const AssetImage('assets/images/stock.png'),
+                    onTap: () {},
+                    color: const Color(0xff042698),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+            ],
+          ),
+        ),
+      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   items: const <BottomNavigationBarItem>[
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.home_outlined),
+      //       label: 'Home',
+      //       backgroundColor: Colors.red,
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.local_offer_outlined),
+      //       label: 'Sales',
+      //       backgroundColor: Colors.green,
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.all_inbox_outlined),
+      //       label: 'Products',
+      //       backgroundColor: Colors.purple,
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.store_outlined),
+      //       label: 'Stock',
+      //       backgroundColor: Colors.pink,
+      //     ),
+      //   ],
+      //   currentIndex: _selectedIndex,
+      //   selectedItemColor: Colors.black,
+      //   onTap: _onItemTapped,
+      // ),
+      // bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.products),
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+          child: GNav(
+            backgroundColor: Color.fromARGB(255, 240, 186, 105),
+            rippleColor: Colors.grey[300]!,
+            hoverColor: Colors.grey[300]!,
+            gap: 8,
+            activeColor: Colors.black,
+            iconSize: 24,
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            duration: Duration(milliseconds: 50),
+            tabBackgroundColor: Colors.grey[100]!,
+            tabMargin:
+                EdgeInsets.only(left: 10, right: 10, top: 13, bottom: 13),
+            color: Colors.black,
+            tabs: [
+              GButton(
+                icon: LineIcons.home,
+                text: 'Home',
+                onPressed: () {
+                  Navigator.pushNamed(context, 'home_screen');
+                },
+              ),
+              GButton(
+                icon: Icons.local_offer,
+                // icon: LineIcons.offer,
+                text: 'Sales',
+                onPressed: () {
+                  Navigator.pushNamed(context, 'sales');
+                },
+              ),
+              GButton(
+                icon: LineIcons.dropbox,
+                text: 'Products',
+                onPressed: () {
+                  Navigator.pushNamed(context, 'products');
+                },
+              ),
+              GButton(
+                icon: LineIcons.user,
+                text: 'Profile',
+                onPressed: () {
+                  Navigator.pushNamed(context, 'stock');
+                },
+              ),
+            ],
+            selectedIndex: _selectedIndex,
+            onTabChange: (index) {
+              setState(() {
+                _selectedIndex = index;
+              });
+            },
+          ),
+        ),
       ),
     );
   }
@@ -391,23 +483,25 @@ class DashboardState extends State<ProductsScreen> {
           });
         },
         child: Padding(
-          padding: EdgeInsets.all(15.0),
-          child: Row(children: [
-            Expanded(
-              child: Icon(
-                Icons.dashboard_outlined,
-                size: 20,
-                color: Colors.black,
+          padding: EdgeInsets.only(bottom: 8, top: 8, left: 15, right: 15),
+          child: Row(
+            children: [
+              Expanded(
+                child: Icon(
+                  LineIcons.userCircleAlt,
+                  size: 30,
+                  color: Colors.black,
+                ),
               ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Text(
-                title,
-                style: TextStyle(color: Colors.black, fontSize: 16),
+              Expanded(
+                flex: 1,
+                child: Text(
+                  title,
+                  style: TextStyle(color: Colors.black, fontSize: 16),
+                ),
               ),
-            ),
-          ]),
+            ],
+          ),
         ),
       ),
     );

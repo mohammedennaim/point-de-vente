@@ -6,6 +6,7 @@ import 'package:point_de_vente/products.dart';
 import 'package:point_de_vente/register_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:point_de_vente/sales.dart';
+import 'package:point_de_vente/stock_page.dart';
 import 'Splash.dart';
 
 void main() async {
@@ -24,6 +25,7 @@ void main() async {
         'splash': (context) => Splash(),
         'sales': (context) => SalesScreen(),
         'products': (context) => ProductsScreen(),
+        'stock': (context) => StockScreen(),
       },
     ),
   );
